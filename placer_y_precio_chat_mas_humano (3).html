@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Placer & Precio: guía educativa sobre sustancias psicoactivas, salud, prevención, riesgos, recuperación y búsqueda de apoyo.">
+
+    <title>Placer & Precio | Educación y Prevención</title>
+
+    <style>
+        :root {
+            --naranja: #F28C28;
+            --naranja-claro: #F4A64D;
+            --rojo: #E94B35;
+            --rojo-claro: #EC6A57;
+            --rojo-oscuro: #D72638;
+
+            --azul: #2F6FA5;
+            --azul-claro: #4F89B8;
+            --azul-oscuro: #1F4E79;
+
+            --turquesa: #2CA6A4;
+            --turquesa-claro: #55B8B6;
+            --verde: #3FA34D;
+            --verde-claro: #62B86D;
+
+            --fondo: #F8F9FA;
+            --fondo-2: #EAEAEA;
+            --gris: #7A7A7A;
+            --gris-medio: #666666;
+            --gris-oscuro: #4A4A4A;
+            --texto: #2B2B2B;
+            --blanco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 16px;
+            z-index: 2000;
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: var(--blanco);
+            background: var(--azul-oscuro);
+        }
+        .skip-link:focus { top: 12px; }
+        a:focus-visible, button:focus-visible, select:focus-visible {
+            outline: 3px solid var(--naranja);
+            outline-offset: 4px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(47, 111, 165, 0.08), transparent 30%),
+                radial-gradient(circle at 90% 35%, rgba(44, 166, 164, 0.07), transparent 28%),
+                radial-gradient(circle at 50% 100%, rgba(63, 163, 77, 0.07), transparent 32%),
+                var(--fondo);
+            color: var(--texto);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        /* =========================================================
+           BARRA DE NAVEGACIÓN
+           ========================================================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            z-index: 1000;
+            background: linear-gradient(90deg,
+                    rgba(31, 78, 121, 0.97),
+                    rgba(43, 43, 43, 0.96),
+                    rgba(44, 166, 164, 0.88));
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(242, 140, 40, 0.35);
+            box-shadow: 0 4px 20px rgba(43, 43, 43, 0.12);
+        }
+
+        nav {
+            max-width: 1200px;
+            height: 75px;
+            margin: auto;
+            padding: 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-image {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 65px;
+        }
+
+        .logo-svg {
+            height: 48px;
+            width: auto;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 27px;
+        }
+
+        .menu a {
+            color: #E8E8E8;
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--naranja), var(--turquesa));
+            transition: 0.3s;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            color: var(--blanco);
+        }
+
+        .menu a:hover::after,
+        .menu a.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Hamburger Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--blanco);
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+        .hero {
+            min-height: 100vh;
+            padding: 130px 8% 80px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(47, 111, 165, 0.10), transparent 35%),
+                radial-gradient(circle at 80% 40%, rgba(233, 75, 53, 0.07), transparent 30%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(44, 166, 164, 0.06);
+            filter: blur(80px);
+            top: 20%;
+            left: 35%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .small-title {
+            color: var(--azul-oscuro);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 13px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 95px);
+            line-height: 0.95;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+            color: var(--texto);
+        }
+
+        .hero h1 .purple {
+            color: var(--azul);
+            text-shadow: 0 0 20px rgba(47, 111, 165, 0.12);
+        }
+
+        .hero h1 .price {
+            background: linear-gradient(90deg,
+                    var(--azul-oscuro) 0%,
+                    var(--azul) 30%,
+                    var(--turquesa) 65%,
+                    var(--naranja) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-text {
+            max-width: 620px;
+            color: var(--gris-oscuro);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 15px 32px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(100deg,
+                    var(--azul-oscuro),
+                    var(--azul),
+                    var(--turquesa));
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 8px 25px rgba(31, 78, 121, 0.18);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(31, 78, 121, 0.25);
+        }
+
+        .hero-button.secondary {
+            margin-left: 10px;
+            color: var(--azul-oscuro);
+            background: var(--blanco);
+            border: 1px solid rgba(31, 78, 121, 0.25);
+            box-shadow: 0 8px 25px rgba(31, 78, 121, 0.08);
+        }
+        .hero-button.secondary:hover { box-shadow: 0 12px 30px rgba(31, 78, 121, 0.15); }
+        .note {
+            margin-top: 14px;
+            padding: 14px 16px;
+            border-left: 4px solid var(--naranja);
+            border-radius: 8px;
+            background: rgba(242, 140, 40, 0.09);
+            color: var(--gris-oscuro);
+            font-size: 14px;
+        }
+        .resource a { color: var(--azul-oscuro); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+
+        /* =========================================================
+           ELEMENTO VISUAL DEL HERO
+           ========================================================= */
+        .visual {
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .circle-main {
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            border: 1px solid rgba(47, 111, 165, 0.40);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle,
+                    rgba(47, 111, 165, 0.12),
+                    rgba(44, 166, 164, 0.06),
+                    transparent 68%);
+            box-shadow: 0 0 60px rgba(47, 111, 165, 0.07);
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        .circle-main::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 1px dashed rgba(242, 140, 40, 0.38);
+        }
+
+        .circle-main::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(44, 166, 164, 0.18), transparent 70%);
+            filter: blur(10px);
+        }
+
+        .brain {
+            font-size: 95px;
+            z-index: 2;
+            filter: drop-shadow(0 0 25px rgba(47, 111, 165, 0.20));
+            user-select: none;
+        }
+
+        .orbit {
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            border-radius: 50%;
+            border: 1px solid rgba(233, 75, 53, 0.15);
+            animation: rotate 18s linear infinite;
+        }
+
+        .orbit-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--naranja);
+            box-shadow: 0 0 18px rgba(242, 140, 40, 0.35);
+            position: absolute;
+            top: 40px;
+            left: 50%;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.04);
+            }
+        }
+
+        /* =========================================================
+           FRASE CENTRAL
+           ========================================================= */
+        .statement {
+            padding: 110px 8%;
+            text-align: center;
+            background: linear-gradient(135deg,
+                    rgba(31, 78, 121, 0.07),
+                    rgba(47, 111, 165, 0.06),
+                    rgba(44, 166, 164, 0.08));
+            border-top: 1px solid rgba(43, 43, 43, 0.08);
+            border-bottom: 1px solid rgba(43, 43, 43, 0.08);
+        }
+
+        .statement-content {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .statement h2 {
+            font-size: clamp(32px, 5vw, 60px);
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: var(--texto);
+        }
+
+        .statement h2 span {
+            background: linear-gradient(90deg,
+                    var(--azul-oscuro),
+                    var(--azul),
+                    var(--turquesa));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .statement p {
+            color: var(--gris-oscuro);
+            line-height: 1.8;
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        /* =========================================================
+           SECCIONES GENERALES Y TARJETAS
+           ========================================================= */
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 110px 25px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.1;
+            margin-bottom: 50px;
+            color: var(--texto);
+        }
+
+        /* EL TEMA */
+        #tema {
+            background: radial-gradient(circle at 10% 50%, rgba(47, 111, 165, 0.08), transparent 35%);
+        }
+
+        #tema .section-label { color: var(--azul); }
+        #tema .section-title { color: var(--azul-oscuro); }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            padding: 35px;
+            min-height: 280px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(234, 234, 234, 0.72));
+            border: 1px solid rgba(74, 74, 74, 0.12);
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s ease;
+            box-shadow: 0 8px 25px rgba(43, 43, 43, 0.05);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            right: -70px;
+            bottom: -70px;
+            background: rgba(47, 111, 165, 0.10);
+            filter: blur(30px);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(47, 111, 165, 0.35);
+            box-shadow: 0 15px 40px rgba(31, 78, 121, 0.12);
+        }
+
+        .card:hover::before {
+            transform: scale(1.5);
+        }
+
+        .card-number {
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: var(--azul);
+            font-weight: bold;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--texto);
+        }
+
+        .card p {
+            color: var(--gris-oscuro);
+            line-height: 1.75;
+            font-size: 15px;
+        }
+
+        /* CEREBRO Y EFECTOS */
+        #cerebro {
+            background: radial-gradient(circle at 85% 50%, rgba(47, 111, 165, 0.09), transparent 35%);
+        }
+
+        #cerebro .section-label { color: var(--azul); }
+        #cerebro .section-title { color: var(--azul-oscuro); }
+
+        .effects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .effect-box {
+            padding: 40px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, rgba(47, 111, 165, 0.10), rgba(79, 137, 184, 0.05));
+            border: 1px solid rgba(47, 111, 165, 0.22);
+            transition: 0.3s;
+        }
+
+        .effect-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(47, 111, 165, 0.40);
+            box-shadow: 0 15px 35px rgba(31, 78, 121, 0.10);
+        }
+
+        .effect-box h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: var(--texto);
+        }
+
+        .effect-box p {
+            color: var(--gris-oscuro);
+            line-height: 1.8;
+        }
+
+        .effect-box ul {
+            margin-top: 20px;
+            padding-left: 20px;
+            color: var(--gris-oscuro);
+            line-height: 2;
+        }
+
+        /* Interactive Substance Selector Tabs */
+        .substance-tabs {
+            display: flex;
+            gap: 12px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .sub-tab {
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(47, 111, 165, 0.3);
+            background: var(--blanco);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            color: var(--gris-oscuro);
+        }
+
+        .sub-tab.active, .sub-tab:hover {
+            background: var(--azul);
+            color: var(--blanco);
+            border-color: var(--azul-oscuro);
+        }
+
+        .substance-display {
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(47, 111, 165, 0.2);
+        }
+
+        /* RIESGOS */
+        #riesgos {
+            background:
+                radial-gradient(circle at 15% 50%, rgba(215, 38, 56, 0.08), transparent 35%),
+                radial-gradient(circle at 85% 70%, rgba(242, 140, 40, 0.07), transparent 30%);
+        }
+
+        #riesgos .section-label { color: var(--rojo-oscuro); }
+        #riesgos .section-title { color: #9F2430; }
+
+        #riesgos .card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(252, 241, 238, 0.85));
+            border-color: rgba(215, 38, 56, 0.16);
+        }
+
+        #riesgos .card-number { color: var(--rojo-oscuro); }
+
+        #riesgos .card:hover {
+            border-color: rgba(215, 38, 56, 0.38);
+            box-shadow: 0 15px 45px rgba(215, 38, 56, 0.10);
+        }
+
+        #riesgos .card::before {
+            background: rgba(233, 75, 53, 0.10);
+        }
+
+        /* PRECIO INTERACTIVO */
+        .price-section {
+            background: linear-gradient(120deg,
+                    rgba(215, 38, 56, 0.09),
+                    rgba(242, 140, 40, 0.08),
+                    rgba(242, 242, 242, 0.95));
+            border-top: 1px solid rgba(242, 140, 40, 0.22);
+            border-bottom: 1px solid rgba(242, 140, 40, 0.22);
+        }
+
+        .price-content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 110px 25px;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .price-section .section-label { color: var(--naranja); }
+
+        .price-title {
+            font-size: clamp(38px, 6vw, 70px);
+            line-height: 1;
+            color: var(--texto);
+        }
+
+        .price-title span {
+            background: linear-gradient(90deg, var(--naranja), var(--rojo));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .price-text {
+            color: var(--gris-oscuro);
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .price-list {
+            margin-top: 30px;
+        }
+
+        .price-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(74, 74, 74, 0.12);
+            color: var(--gris-oscuro);
+        }
+
+        .price-item span {
+            color: var(--naranja);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Dynamic Tool Box */
+        .calculator-box {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border: 1px solid rgba(242,140,40,0.3);
+        }
+
+        .calc-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        /* RECUPERACIÓN */
+        #recuperacion {
+            background:
+                radial-gradient(circle at 20% 60%, rgba(44, 166, 164, 0.10), transparent 35%),
+                radial-gradient(circle at 80% 40%, rgba(63, 163, 77, 0.08), transparent 35%);
+        }
+
+        #recuperacion .section-label { color: var(--verde); }
+
+        .recovery-message {
+            padding: 60px;
+            border-radius: 30px;
+            background: linear-gradient(120deg,
+                    rgba(44, 166, 164, 0.10),
+                    rgba(63, 163, 77, 0.08),
+                    rgba(47, 111, 165, 0.06));
+            border: 1px solid rgba(44, 166, 164, 0.25);
+            box-shadow: 0 20px 50px rgba(44, 166, 164, 0.07);
+        }
+
+        .recovery-message h3 {
+            font-size: clamp(32px, 5vw, 55px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--texto);
+        }
+
+        .recovery-message h3 span {
+            background: linear-gradient(90deg, var(--turquesa), var(--verde));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .recovery-message>p {
+            color: var(--gris-oscuro);
+            max-width: 800px;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .recovery-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .recovery-point {
+            padding: 25px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(44, 166, 164, 0.20);
+            transition: 0.3s;
+        }
+
+        .recovery-point:hover {
+            transform: translateY(-5px);
+            border-color: rgba(63, 163, 77, 0.38);
+        }
+
+        .recovery-point h4 {
+            color: var(--turquesa);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .recovery-point p {
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* RECURSOS */
+        #recursos {
+            background: radial-gradient(circle at 50% 90%, rgba(44, 166, 164, 0.07), transparent 35%);
+        }
+
+        #recursos .section-label { color: var(--turquesa); }
+        #recursos .section-title { color: var(--azul-oscuro); }
+
+        .resources {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .resource {
+            padding: 30px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(47, 111, 165, 0.06), rgba(44, 166, 164, 0.06));
+            border: 1px solid rgba(44, 166, 164, 0.18);
+            transition: 0.3s;
+        }
+
+        .resource:hover {
+            transform: translateY(-5px);
+            border-color: rgba(63, 163, 77, 0.38);
+            box-shadow: 0 15px 35px rgba(44, 166, 164, 0.08);
+        }
+
+        .resource h3 {
+            margin-bottom: 12px;
+            color: var(--texto);
+            font-size: 20px;
+        }
+
+        .resource p {
+            color: var(--gris-oscuro);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* MENSAJE FINAL */
+        .final-message {
+            padding: 120px 25px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(63, 163, 77, 0.09), transparent 45%),
+                linear-gradient(180deg, #EAEAEA, #F2F2F2);
+            border-top: 1px solid rgba(63, 163, 77, 0.18);
+        }
+
+        .final-message h2 {
+            font-size: clamp(36px, 6vw, 70px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+            color: var(--texto);
+        }
+
+        .final-message h2 span {
+            background: linear-gradient(90deg, var(--turquesa), var(--verde), var(--verde-claro));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .final-message p {
+            max-width: 720px;
+            margin: auto;
+            color: var(--gris-oscuro);
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 50px 25px;
+            text-align: center;
+            border-top: 1px solid rgba(47, 111, 165, 0.18);
+            background: var(--gris-oscuro);
+            color: var(--blanco);
+        }
+
+        footer h2 {
+            margin-bottom: 10px;
+            color: var(--naranja-claro);
+            letter-spacing: 2px;
+            font-size: 20px;
+        }
+
+        footer p {
+            color: #D5D5D5;
+            font-size: 14px;
+        }
+
+        /* ANIMACIONES Y PROGRESO */
+        .appear {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .appear.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            z-index: 2000;
+            background: linear-gradient(90deg,
+                    var(--azul-oscuro),
+                    var(--azul),
+                    var(--turquesa),
+                    var(--verde));
+            box-shadow: 0 0 8px rgba(47, 111, 165, 0.25);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 1000px) {
+            .menu {
+                gap: 15px;
+            }
+
+            .menu a {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .visual {
+                height: 380px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .effects {
+                grid-template-columns: 1fr;
+            }
+
+            .price-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resources {
+                grid-template-columns: 1fr;
+            }
+
+            .recovery-points {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-button.secondary { margin: 12px 0 0; }
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: rgba(31, 78, 121, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 20px;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+
+            .menu.open {
+                display: flex;
+            }
+
+            .circle-main {
+                width: 260px;
+                height: 260px;
+            }
+
+            .orbit {
+                width: 310px;
+                height: 310px;
+            }
+
+            .brain {
+                font-size: 75px;
+            }
+
+            .recovery-message {
+                padding: 30px;
+            }
+        }
+    
+        /* =========================================================
+           CHAT DE ORIENTACIÓN — añadido sin modificar las secciones existentes
+           ========================================================= */
+        #pp-chat-launcher {
+            position: fixed; right: 24px; bottom: 24px; z-index: 3000;
+            display: flex; align-items: center; gap: 10px;
+            border: 0; border-radius: 999px; padding: 14px 19px;
+            color: #fff; font: 600 15px 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, var(--azul-oscuro), var(--azul), var(--turquesa));
+            box-shadow: 0 10px 30px rgba(31,78,121,.28); cursor: pointer;
+            transition: transform .2s, box-shadow .2s;
+        }
+        #pp-chat-launcher:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(31,78,121,.34); }
+        #pp-chat-launcher .pp-chat-icon { font-size: 22px; line-height: 1; }
+        #pp-chat-panel {
+            position: fixed; right: 24px; bottom: 88px; z-index: 3001;
+            width: min(390px, calc(100vw - 28px)); height: min(570px, calc(100dvh - 120px));
+            min-height: 390px; display: none; flex-direction: column; overflow: hidden;
+            border: 1px solid rgba(47,111,165,.22); border-radius: 20px;
+            background: #fff; box-shadow: 0 18px 55px rgba(31,78,121,.24);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        #pp-chat-panel.pp-open { display: flex; animation: ppChatIn .18s ease-out; }
+        @keyframes ppChatIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .pp-chat-header {
+            display: flex; align-items: center; gap: 11px; padding: 16px;
+            color: white; background: linear-gradient(110deg, var(--azul-oscuro), var(--azul), var(--turquesa));
+        }
+        .pp-chat-avatar { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px;
+            border-radius: 50%; background: rgba(255,255,255,.17); font-size: 22px; }
+        .pp-chat-heading { min-width: 0; flex: 1; }
+        .pp-chat-heading strong { display: block; font-size: 15px; }
+        .pp-chat-heading small { display: block; margin-top: 2px; font-size: 12px; opacity: .9; }
+        #pp-chat-close { border: 0; background: transparent; color: #fff; cursor: pointer; font-size: 25px; padding: 2px 5px; }
+        #pp-chat-messages { flex: 1; overflow-y: auto; padding: 16px 13px; background: #f7fafb; }
+        .pp-chat-msg { max-width: 88%; margin: 0 0 12px; padding: 11px 13px; border-radius: 15px;
+            font-size: 13.5px; line-height: 1.55; overflow-wrap: anywhere; white-space: pre-wrap; }
+        .pp-chat-msg.pp-bot { margin-right: auto; color: #303b43; background: #fff; border: 1px solid #e1e9ed; border-bottom-left-radius: 5px; }
+        .pp-chat-msg.pp-user { margin-left: auto; color: #fff; background: var(--azul); border-bottom-right-radius: 5px; }
+        .pp-chat-quick { display: flex; gap: 7px; flex-wrap: wrap; padding: 0 12px 10px; background: #fff; }
+        .pp-chat-quick button { border: 1px solid rgba(47,111,165,.35); color: var(--azul-oscuro); background: #fff;
+            border-radius: 18px; padding: 7px 10px; cursor: pointer; font-size: 12px; }
+        .pp-chat-quick button:hover { background: #eef7fa; transform: translateY(-1px); }
+        .pp-chat-welcome { margin: 0 0 13px; padding: 12px 13px; border-radius: 14px; background: #eaf6f5; color: #244b50; font-size: 12px; line-height: 1.5; }
+        .pp-chat-welcome strong { display: block; margin-bottom: 4px; font-size: 13px; }
+        .pp-chat-section-label { width: 100%; color: #6b7b83; font-size: 11px; margin: 2px 0 0; }
+        .pp-chat-quick button:focus-visible, #pp-chat-send:focus-visible, #pp-chat-launcher:focus-visible, #pp-chat-close:focus-visible { outline: 3px solid #f4c95d; outline-offset: 2px; }
+        .pp-chat-compose { display: flex; gap: 8px; padding: 11px; border-top: 1px solid #e5ebef; background: #fff; }
+        #pp-chat-input { flex: 1; min-width: 0; resize: none; max-height: 90px; border: 1px solid #d6e0e6;
+            border-radius: 12px; padding: 11px; font: 14px 'Segoe UI', Arial, sans-serif; outline-color: var(--turquesa); }
+        #pp-chat-send { width: 43px; flex: 0 0 43px; border: 0; border-radius: 12px; color: white;
+            background: var(--azul); font-size: 19px; cursor: pointer; }
+        #pp-chat-send:disabled { opacity: .55; cursor: wait; }
+        .pp-chat-disclaimer { padding: 8px 12px 10px; color: #69757d; background: #fff; font-size: 10.5px; line-height: 1.4; text-align: center; }
+        .pp-chat-typing { color: #69757d; font-size: 12px; padding: 0 14px 8px; background: #f7fafb; }
+        .pp-chat-typing span { display: inline-block; animation: ppPulse 1s infinite ease-in-out; }
+        @keyframes ppPulse { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
+        .pp-chat-note { margin: 0; padding: 0 12px 9px; background: #fff; color: #718087; font-size: 10px; line-height: 1.4; }
+        @media (max-width: 480px) {
+            #pp-chat-launcher { right: 14px; bottom: 14px; padding: 13px 16px; }
+            #pp-chat-panel { right: 10px; bottom: 75px; width: calc(100vw - 20px); height: min(600px, calc(100dvh - 95px)); }
+        }
+        @media (prefers-reduced-motion: reduce) { #pp-chat-panel.pp-open { animation: none; } }
+
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <!-- Scroll Progress Indicator Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo-image" aria-label="Placer y Precio Inicio">
+                <!-- Inline Vector Logo -->
+                <svg class="logo-svg" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="22" stroke="#F28C28" stroke-width="3" fill="none" />
+                    <path d="M18 30 C 22 20, 26 20, 30 30 C 34 40, 38 40, 42 30" stroke="#2CA6A4" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <circle cx="30" cy="30" r="4" fill="#E94B35" />
+                    <text x="62" y="34" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#FFFFFF">PLACER</text>
+                    <text x="142" y="34" font-family="Arial, sans-serif" font-weight="300" font-size="20" fill="#F28C28">&amp;</text>
+                    <text x="165" y="34" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#2CA6A4">PRECIO</text>
+                    <text x="62" y="48" font-family="Arial, sans-serif" font-size="9" fill="#D5D5D5" letter-spacing="1.5">EDUCACIÓN Y PREVENCIÓN</text>
+                </svg>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú">☰</button>
+
+            <ul class="menu" id="navMenu">
+                <li><a href="#tema">El Tema</a></li>
+                <li><a href="#cerebro">El Cerebro</a></li>
+                <li><a href="#riesgos">Riesgos</a></li>
+                <li><a href="#precio">El Precio</a></li>
+                <li><a href="#recuperacion">Recuperación</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#fuentes">Fuentes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="contenido">
+    <section class="hero" aria-labelledby="titulo-principal">
+        <div class="hero-content">
+            <div>
+                <div class="small-title">Proyecto Psicoeducativo</div>
+                <h1 id="titulo-principal">
+                    Comprender el <span class="purple">Placer</span>,<br>
+                    Evaluar el <span class="price">Precio</span>
+                </h1>
+                <p class="hero-text">
+                    Una guía clara e informada sobre el funcionamiento de las sustancias psicoactivas en nuestro organismo, los procesos neurológicos de la adicción y las herramientas para la toma de decisiones conscientes.
+                </p>
+                <a href="#tema" class="hero-button">Explorar la guía</a>
+                <a href="#recursos" class="hero-button secondary">Necesito orientación</a>
+                <p class="note" style="max-width: 620px;">Este sitio es educativo. No diagnostica ni reemplaza la atención de profesionales de salud.</p>
+            </div>
+
+            <div class="visual">
+                <div class="orbit">
+                    <div class="orbit-dot"></div>
+                </div>
+                <div class="circle-main">
+                    <div class="brain" title="Sistema Nervioso">🧠</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statement Section -->
+    <section class="statement">
+        <div class="statement-content appear">
+            <h2>
+                "La información objetiva es la herramienta más valiosa para la <span>prevención real</span>."
+            </h2>
+            <p>
+                Comprender el consumo desde la neurociencia y la salud pública ayuda a tomar decisiones informadas, reconocer señales de alerta y buscar apoyo sin estigmatizar a las personas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 1: El Tema -->
+    <section id="tema" class="section">
+        <div class="section-label appear">Fundamentos</div>
+        <h2 class="section-title appear">¿Qué son las Sustancias Psicoactivas?</h2>
+
+        <div class="cards">
+            <div class="card appear">
+                <div class="card-number">01 / CONCEPTO</div>
+                <h3>Definición Básica</h3>
+                <p>
+                    Son compuestos químicos (naturales o sintéticos) que al ingresar al organismo alteran el funcionamiento del sistema nervioso central, modificando la percepción, el estado de ánimo y el comportamiento.
+                </p>
+            </div>
+
+            <div class="card appear">
+                <div class="card-number">02 / CLASIFICACIÓN</div>
+                <h3>Tipos de Efectos</h3>
+                <p>
+                    Se dividen comúnmente según su acción en el cerebro: Depresoras (ralentizan), Estimulantes (aceleran) y Perturbadoras o Alucinógenas (distorsionan la percepción).
+                </p>
+            </div>
+
+            <div class="card appear">
+                <div class="card-number">03 / MECANISMO</div>
+                <h3>El Circuito de Recompensa</h3>
+                <p>
+                    Algunas sustancias afectan el circuito cerebral de recompensa y el aprendizaje. Sus efectos varían según la sustancia, la cantidad, la frecuencia y las características de cada persona; no todas actúan de la misma manera.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: El Cerebro -->
+    <section id="cerebro" class="section">
+        <div class="section-label appear">Neurobiología</div>
+        <h2 class="section-title appear">Impacto en el Sistema Nervioso</h2>
+
+        <div class="effects">
+            <div class="effect-box appear">
+                <h3>El Espejismo Inmediato</h3>
+                <p>
+                    Los efectos inmediatos dependen de la sustancia y pueden incluir cambios en el ánimo, la atención, la percepción o la energía. También pueden aparecer reacciones adversas desde el primer consumo.
+                </p>
+                <ul>
+                    <li>Incremento súbito de dopamina (sensación de bienestar)</li>
+                    <li>Alteración de receptores GABA y Glutamato</li>
+                    <li>Efecto analgésico y desinhibición momentánea</li>
+                </ul>
+            </div>
+
+            <div class="effect-box appear">
+                <h3>La Adaptación Cerebral (Tolerancia)</h3>
+                <p>
+                    Con el consumo repetido pueden aparecer tolerancia, deseo intenso de consumir o síntomas de abstinencia. Estos cambios no ocurren igual en todas las personas ni con todas las sustancias.
+                </p>
+                <ul>
+                    <li>Disminución de receptores dopaminérgicos</li>
+                    <li>Deterioro de la corteza prefrontal (toma de decisiones)</li>
+                    <li>Aparición de la dependencia física y psicológica</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Interactive Explorer -->
+        <div class="appear" style="margin-top: 50px;">
+            <h3 style="font-size: 22px; margin-bottom: 15px; color: var(--azul-oscuro);">Explorador por Categoría de Sustancia</h3>
+            <div class="substance-tabs">
+                <button class="sub-tab active" onclick="showSubstance('depresoras', this)">Depresoras (Alcohol, Opiáceos)</button>
+                <button class="sub-tab" onclick="showSubstance('estimulantes', this)">Estimulantes (Nicotina, Cafeína, Cocaína)</button>
+                <button class="sub-tab" onclick="showSubstance('alucinogenas', this)">Alucinógenas / Psicodélicos</button>
+            </div>
+
+            <div class="substance-display" id="substanceInfo">
+                <h4 style="color: var(--azul); font-size: 18px;" id="subTitle">Sustancias Depresoras</h4>
+                <p id="subDesc" style="color: var(--gris-oscuro); margin-top: 8px;">
+                    Disminuyen la actividad del Sistema Nervioso Central. Producen sedación, relajación muscular y desaceleración del ritmo cardíaco y respiratorio. A dosis altas pueden provocar coma o paro respiratorio.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Riesgos -->
+    <section id="riesgos" class="section">
+        <div class="section-label appear">Advertencia & Consecuencias</div>
+        <h2 class="section-title appear">Factores de Riesgo</h2>
+
+        <div class="cards">
+            <div class="card appear">
+                <div class="card-number">01 / SALUD FÍSICA</div>
+                <h3>Deterioro Orgánico</h3>
+                <p>
+                    Según la sustancia y el patrón de consumo, pueden presentarse problemas en órganos vitales, alteraciones del sueño, accidentes, intoxicaciones o sobredosis.
+                </p>
+            </div>
+
+            <div class="card appear">
+                <div class="card-number">02 / SALUD MENTAL</div>
+                <h3>Trastornos Asociados</h3>
+                <p>
+                    Algunas sustancias pueden aumentar o agravar la ansiedad, la depresión, los problemas de memoria o los síntomas psicóticos, especialmente en personas vulnerables.
+                </p>
+            </div>
+
+            <div class="card appear">
+                <div class="card-number">03 / ÁMBITO SOCIAL</div>
+                <h3>Aislamiento e Impacto</h3>
+                <p>
+                    El consumo problemático puede afectar las relaciones, el estudio, el trabajo y la economía. El apoyo respetuoso puede facilitar que la persona busque ayuda.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: El Precio -->
+    <section id="precio" class="price-section">
+        <div class="price-content">
+            <div class="price-grid">
+                <div class="appear">
+                    <div class="section-label">Balance Real</div>
+                    <h2 class="price-title">El Costo Oculto del <span>Placer</span></h2>
+                    <p class="price-text" style="margin-top: 20px;">
+                        El verdadero costo de la adicción o el consumo problemático rara vez se mide en dinero. El 'precio' se paga con los recursos más valiosos de una persona.
+                    </p>
+
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span>01</span>
+                            <div>
+                                <strong>Pérdida de Autonomía:</strong> La libertad de elección queda subordinada a la necesidad compulsiva de consumo.
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <span>02</span>
+                            <div>
+                                <strong>Desgaste Afectivo:</strong> Deterioro gradual de la confianza en las relaciones interpersonales significativas.
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <span>03</span>
+                            <div>
+                                <strong>Agotamiento Emocional:</strong> Incapacidad para experimentar placer natural a través de actividades cotidianas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Evaluation Tool -->
+                <div class="calculator-box appear">
+                    <h3 style="font-size: 22px; color: var(--texto); margin-bottom: 10px;">Guía de reflexión personal</h3>
+                    <p style="font-size: 14px; color: var(--gris-medio); margin-bottom: 15px;">
+                        Piensa en la frecuencia y en cómo el consumo o el impulso de consumir afecta tu vida. El resultado es orientativo: no es una prueba clínica ni calcula un diagnóstico.
+                    </p>
+
+                    <label style="font-size: 14px; font-weight: 600;" for="freqSelect">Frecuencia de Uso/Impulso:</label>
+                    <select id="freqSelect" class="calc-input" onchange="calculateImpact()">
+                        <option value="1">Ocasional / Esporádico</option>
+                        <option value="2">Habitual (fines de semana)</option>
+                        <option value="3">Frecuente (varias veces por semana)</option>
+                        <option value="4">Diario / Compulsivo</option>
+                    </select>
+
+                    <label style="font-size: 14px; font-weight: 600;" for="priSelect">Impacto en Actividades Diarias:</label>
+                    <select id="priSelect" class="calc-input" onchange="calculateImpact()">
+                        <option value="1">Sin interferencia en responsabilidades</option>
+                        <option value="2">Interferencia leve (fatiga, postergación)</option>
+                        <option value="3">Negligencia periódica de deberes</option>
+                        <option value="4">Abandono total de metas y responsabilidades</option>
+                    </select>
+
+                    <div id="calcResult" style="padding: 15px; border-radius: 12px; background: rgba(242, 140, 40, 0.1); border: 1px solid var(--naranja); text-align: center;">
+                        <strong style="color: var(--azul-oscuro);">Tómate un momento para reflexionar</strong>
+                        <p style="font-size: 13px; margin-top: 5px; color: var(--gris-oscuro);">Ninguna respuesta permite confirmar o descartar una dependencia. Si algo te preocupa, habla con un profesional de salud o una persona adulta de confianza.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Recuperación -->
+    <section id="recuperacion" class="section">
+        <div class="section-label appear">Neuroplasticidad & Esperanza</div>
+
+        <div class="recovery-message appear">
+            <h3>El Cerebro Puede <span>Regenerarse</span></h3>
+            <p>
+El cerebro tiene capacidad de adaptación y algunos cambios relacionados con el consumo pueden mejorar con el tiempo. La recuperación es diferente para cada persona y puede requerir atención médica, apoyo psicológico y acompañamiento social.
+            </p>
+
+            <div class="recovery-points">
+                <div class="recovery-point">
+                    <h4>Atención segura</h4>
+                    <p>Una valoración profesional ayuda a definir los cuidados necesarios. No todas las sustancias se pueden dejar de consumir de forma brusca sin riesgos médicos.</p>
+                </div>
+
+                <div class="recovery-point">
+                    <h4>Herramientas personales</h4>
+                    <p>El acompañamiento psicológico puede ayudar a reconocer situaciones difíciles y desarrollar formas más saludables de afrontarlas.</p>
+                </div>
+
+                <div class="recovery-point">
+                    <h4>Red de apoyo</h4>
+                    <p>La familia, las amistades de confianza y los profesionales pueden acompañar el proceso sin juzgar ni humillar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Recursos -->
+    <section id="recursos" class="section">
+        <div class="section-label appear">Soporte & Ayuda</div>
+        <h2 class="section-title appear">Líneas de Atención e Información</h2>
+
+        <div class="resources">
+            <div class="resource appear">
+                <h3>Si necesitas ayuda</h3>
+                <p>No tienes que resolverlo a solas. Puedes hablar con un adulto de confianza, acudir a orientación escolar o pedir una cita en tu EPS o centro de salud.</p>
+                <p style="margin-top: 15px; font-weight: bold; color: var(--azul);">📞 En Colombia, ante una emergencia inmediata, llama al <strong>123</strong>.</p>
+                <p class="note">Si hay pérdida de conciencia, dificultad para respirar, convulsiones o sospecha de sobredosis, busca atención de urgencia. No dejes sola a la persona.</p>
+            </div>
+
+            <div class="resource appear">
+                <h3>Si te preocupa alguien</h3>
+                <p>Escucha con calma, evita insultos o amenazas y expresa lo que te preocupa con ejemplos concretos. Ofrece acompañar a la persona a buscar atención profesional.</p>
+                <p style="margin-top: 15px; font-weight: bold; color: var(--turquesa);">🏥 Puedes consultar información en fuentes oficiales:</p>
+                <p style="margin-top: 8px;"><a href="https://www.minsalud.gov.co/" target="_blank" rel="noopener noreferrer">Ministerio de Salud y Protección Social</a></p>
+                <p style="margin-top: 8px;"><a href="https://www.medellin.gov.co/" target="_blank" rel="noopener noreferrer">Alcaldía de Medellín</a></p>
+            </div>
+        </div>
+        <div class="note" style="margin-top: 22px;">Las líneas de orientación psicológica y sus horarios pueden cambiar según el municipio. Confirma la información en los canales oficiales de tu ciudad. Este contenido no reemplaza la valoración de un profesional.</div>
+    </section>
+
+    <!-- Fuentes de consulta -->
+    <section class="section" id="fuentes">
+        <div class="section-label appear">Información responsable</div>
+        <h2 class="section-title appear">Fuentes para seguir aprendiendo</h2>
+        <div class="cards">
+            <div class="card appear">
+                <div class="card-number">FUENTE OFICIAL</div>
+                <h3>Ministerio de Salud de Colombia</h3>
+                <p>Consulta información institucional sobre salud pública, prevención y servicios de atención.</p>
+                <p style="margin-top: 12px;"><a href="https://www.minsalud.gov.co/" target="_blank" rel="noopener noreferrer" style="color: var(--azul-oscuro); text-decoration: underline;">Visitar sitio oficial</a></p>
+            </div>
+            <div class="card appear">
+                <div class="card-number">FUENTE INTERNACIONAL</div>
+                <h3>Organización Mundial de la Salud</h3>
+                <p>Material de referencia sobre salud, bienestar y prevención de riesgos.</p>
+                <p style="margin-top: 12px;"><a href="https://www.who.int/es" target="_blank" rel="noopener noreferrer" style="color: var(--azul-oscuro); text-decoration: underline;">Visitar sitio oficial</a></p>
+            </div>
+            <div class="card appear">
+                <div class="card-number">CONTEXTO LOCAL</div>
+                <h3>Alcaldía de Medellín</h3>
+                <p>Consulta los canales locales para conocer programas y servicios disponibles en la ciudad.</p>
+                <p style="margin-top: 12px;"><a href="https://www.medellin.gov.co/" target="_blank" rel="noopener noreferrer" style="color: var(--azul-oscuro); text-decoration: underline;">Visitar sitio oficial</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Message -->
+    <section class="final-message">
+        <div class="appear">
+            <h2>Elegir con <span>Conciencia</span></h2>
+            <p>
+                El conocimiento sobre cómo actúan las sustancias en nuestra mente y cuerpo es el primer paso para proteger nuestra salud, bienestar y libertad.
+            </p>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h2>PLACER & PRECIO</h2>
+        <p>Proyecto Psicoeducativo e Informativo sobre Sustancias Psicoactivas y Salud Mental.</p>
+        <p style="margin-top: 10px; opacity: 0.7; font-size: 12px;">© Placer & Precio. Contenido puramente educativo. No reemplaza el diagnóstico o tratamiento médico profesional.</p>
+    </footer>
+
+
+    <!-- Chat interactivo de orientación: añadido como elemento independiente -->
+    <button id="pp-chat-launcher" type="button" aria-label="Abrir chat de orientación" aria-controls="pp-chat-panel" aria-expanded="false">
+        <span class="pp-chat-icon" aria-hidden="true">💬</span><span>¿Necesitas hablar?</span>
+    </button>
+    <section id="pp-chat-panel" role="dialog" aria-label="Chat de orientación sobre sustancias" aria-modal="false">
+        <div class="pp-chat-header">
+            <div class="pp-chat-avatar" aria-hidden="true">💙</div>
+            <div class="pp-chat-heading"><strong>Hablemos con calma</strong><small><span aria-hidden="true">●</span> Un espacio de orientación sin juicios</small></div>
+            <button id="pp-chat-close" type="button" aria-label="Cerrar chat">×</button>
+        </div>
+        <div id="pp-chat-messages" role="log" aria-live="polite" aria-relevant="additions">
+            <div class="pp-chat-welcome"><strong>Qué bueno que llegaste. 💙</strong>No tienes que saber exactamente qué decir. Puedes empezar por lo que te preocupa, hacer una pregunta o simplemente contar cómo te sientes. Vamos paso a paso, sin juicios.</div>
+            <div class="pp-chat-msg pp-bot">Hola, estoy aquí para orientarte. ¿Qué te vendría mejor en este momento: resolver una duda, hablar de algo que te preocupa o encontrar cómo apoyar a alguien?</div>
+        </div>
+        <div class="pp-chat-quick" aria-label="Formas de empezar la conversación">
+            <p class="pp-chat-section-label">Puedes empezar por aquí:</p>
+            <button type="button" data-pp-question="No sé cómo empezar, pero necesito hablar">💬 Necesito hablar</button>
+            <button type="button" data-pp-question="Me preocupa mi consumo y no sé qué hacer">🫶 Me preocupa mi consumo</button>
+            <button type="button" data-pp-question="Quiero ayudar a alguien sin juzgarlo">🤝 Quiero ayudar a alguien</button>
+            <button type="button" data-pp-question="Quiero entender los riesgos de una sustancia">ℹ️ Quiero informarme</button>
+        </div>
+        <div class="pp-chat-typing" id="pp-chat-typing" hidden><span>● ● ●</span> Estoy leyendo lo que me cuentas…</div>
+        <p class="pp-chat-note">Comparte solo lo que te sientas cómodo/a contando. No necesitas dar tu nombre.</p>
+        <form class="pp-chat-compose" id="pp-chat-form">
+            <label for="pp-chat-input" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Escribe tu pregunta</label>
+            <textarea id="pp-chat-input" rows="1" maxlength="1200" placeholder="Escribe tu pregunta…" required></textarea>
+            <button id="pp-chat-send" type="submit" aria-label="Enviar mensaje">➤</button>
+        </form>
+        <div class="pp-chat-disclaimer">Un espacio de orientación educativa; no sustituye a un profesional ni es una persona real. Cuida tus datos personales. Emergencias en Colombia: 123.</div>
+    </section>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu on clicking link
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+            });
+        });
+
+        // Active Link Highlighting on Scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll Appear Animation Observer
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const appearObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.appear').forEach(el => {
+            appearObserver.observe(el);
+        });
+
+        // Interactive Substance Explorer Data
+        const substanceData = {
+            depresoras: {
+                title: "Sustancias Depresoras (Ej. Alcohol, Benzodiacepinas, Opiáceos)",
+                desc: "Disminuyen la actividad del Sistema Nervioso Central. Producen sedación, relajación muscular y desaceleración del ritmo cardíaco y respiratorio. A dosis elevadas conllevan alto riesgo de coma, paro respiratorio o dependencia severa."
+            },
+            estimulantes: {
+                title: "Sustancias Estimulantes (Ej. Nicotina, Cafeína, Anfetaminas, Cocaína)",
+                desc: "Aceleran el funcionamiento del cerebro y aumentan los niveles de energía, estado de alerta y presión arterial. El desgaste posterior genera fatiga extrema, estados depresivos e insomnio."
+            },
+            alucinogenas: {
+                title: "Sustancias Alucinógenas / Psicodélicos (Ej. LSD, Psilocibina, Cannabis en dosis altas)",
+                desc: "Alteran profundamente la percepción, las emociones y los sentidos. Pueden inducir experiencias complejas, cambios bruscos de humor y en sujetos predispuestos, desencadenar episodios psicóticos o flashbacks."
+            }
+        };
+
+        function showSubstance(key, element) {
+            document.querySelectorAll('.sub-tab').forEach(tab => tab.classList.remove('active'));
+            element.classList.add('active');
+
+            const info = substanceData[key];
+            document.getElementById('subTitle').innerText = info.title;
+            document.getElementById('subDesc').innerText = info.desc;
+        }
+
+        // Interactive Cost/Risk Calculator Logic
+        function calculateImpact() {
+            const freq = parseInt(document.getElementById('freqSelect').value);
+            const pri = parseInt(document.getElementById('priSelect').value);
+            const score = freq + pri;
+
+            const resultBox = document.getElementById('calcResult');
+
+            if (score <= 3) {
+                resultBox.style.background = 'rgba(63, 163, 77, 0.10)';
+                resultBox.style.borderColor = 'var(--verde)';
+                resultBox.innerHTML = '<strong style="color: var(--verde);">Una oportunidad para cuidar tu bienestar</strong><p style="font-size: 13px; margin-top: 5px; color: var(--gris-oscuro);">Sigue informándote y revisa cómo tus decisiones afectan tu salud y tus metas. Este resultado no descarta un problema.</p>';
+            } else if (score <= 5) {
+                resultBox.style.background = 'rgba(242, 140, 40, 0.12)';
+                resultBox.style.borderColor = 'var(--naranja)';
+                resultBox.innerHTML = '<strong style="color: var(--naranja);">Vale la pena observar este patrón</strong><p style="font-size: 13px; margin-top: 5px; color: var(--gris-oscuro);">Pregúntate qué situaciones influyen en el consumo o impulso. Si te preocupa, conversa con alguien de confianza o con un profesional.</p>';
+            } else {
+                resultBox.style.background = 'rgba(215, 38, 56, 0.10)';
+                resultBox.style.borderColor = 'var(--rojo-oscuro)';
+                resultBox.innerHTML = '<strong style="color: var(--rojo-oscuro);">Busca orientación y apoyo</strong><p style="font-size: 13px; margin-top: 5px; color: var(--gris-oscuro);">Si sientes que el consumo afecta tu salud, tus relaciones o tus responsabilidades, pide una valoración profesional. No tienes que afrontarlo a solas.</p>';
+            }
+            const disclaimer = document.createElement('p');
+            disclaimer.style.cssText = 'font-size:12px;margin-top:8px;color:var(--gris-oscuro);';
+            disclaimer.textContent = 'Esta herramienta es educativa y no calcula ni diagnostica una dependencia.';
+            resultBox.appendChild(disclaimer);
+        }
+
+        // Chat de orientación interactivo. Funciona sin servicios externos mediante respuestas educativas.
+        // Para respuestas generadas por una IA real, conecta un backend seguro en PP_CHAT_API_URL.
+        const PP_CHAT_API_URL = "";
+        (() => {
+            const launcher = document.getElementById('pp-chat-launcher');
+            const panel = document.getElementById('pp-chat-panel');
+            const close = document.getElementById('pp-chat-close');
+            const form = document.getElementById('pp-chat-form');
+            const input = document.getElementById('pp-chat-input');
+            const messages = document.getElementById('pp-chat-messages');
+            const send = document.getElementById('pp-chat-send');
+            const typing = document.getElementById('pp-chat-typing');
+
+            const openChat = () => {
+                panel.classList.add('pp-open');
+                launcher.setAttribute('aria-expanded', 'true');
+                input.focus();
+            };
+            const closeChat = () => {
+                panel.classList.remove('pp-open');
+                launcher.setAttribute('aria-expanded', 'false');
+                launcher.focus();
+            };
+            launcher.addEventListener('click', () => panel.classList.contains('pp-open') ? closeChat() : openChat());
+            close.addEventListener('click', closeChat);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && panel.classList.contains('pp-open')) closeChat(); });
+
+            function addMessage(text, who) {
+                const el = document.createElement('div');
+                el.className = 'pp-chat-msg ' + (who === 'user' ? 'pp-user' : 'pp-bot');
+                el.textContent = text;
+                messages.appendChild(el);
+                messages.scrollTop = messages.scrollHeight;
+            }
+            // Respuestas locales con prioridad clínica para señales de riesgo y variación de lenguaje.
+            // Importante: sin backend de IA, el sistema no comprende libremente cualquier mensaje.
+            let ppChatContext = { risk: false, lastTopic: '' };
+            function localReply(raw) {
+                const t = raw.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[¿?¡!.,;:]/g, ' ').replace(/\s+/g, ' ').trim();
+                const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+                const riskWords = /(suicid|quitarme la vida|acabar con mi vida|matarme|hacerme dano|hacerme daño|no quiero vivir|no quiero seguir|quiero morir|quiero desaparecer|no quiero estar aqui|no quiero estar aqui)/.test(t);
+                const meansWords = /(tengo (?:pastillas|medicamentos|una pistola|un cuchillo|un arma|una cuerda| cosas|algo) para|tengo con que hacerlo|tengo los medios|ya prepare|ya prepar[eé] algo|lo tengo aqui|lo tengo aquí|est[aá] todo listo|tengo todo listo|sé cómo hacerlo|se como hacerlo|puedo hacerlo ahora|voy a hacerlo ahora)/.test(t);
+                const attemptWords = /(lo he intentado|ya lo intente|ya lo intent[eé]|intente suicidarme|he intentado suicidarme|me hice dano|me he hecho dano|ya me tome|me tome muchas|me corte|ya lo hice|acabo de hacerlo|me acabo de tomar|me he tomado|me tome pastillas|tom[eé] pastillas)/.test(t);
+                const immediateWords = /(ahora mismo|esta noche|hoy lo voy a hacer|voy a hacerlo|estoy a punto|no puedo prometer que estare a salvo|no puedo mantenerme a salvo|no puedo evitarlo)/.test(t);
+
+                if (/(sobredosis|no respira|no responde|inconsciente|convulsion|convulsiona|labios morados|se desmayo|no despierta|tome demasiad|me tome muchas pastillas|mezcle sustancias)/.test(t)) {
+                    ppChatContext.risk = true;
+                    return pick([
+                        'Esto puede ser una urgencia médica y no quiero que esperes a ver si se pasa. Llama al 123 ahora o pídele a alguien que llame por ti. Si puedes, dile a una persona cercana qué tomaste y aproximadamente cuándo; no provoques el vómito ni tomes nada más. ¿Estás tú en esta situación o estás acompañando a alguien?',
+                        'Me preocupa tu seguridad por lo que acabas de contar. Si hay una posible sobredosis, dificultad para respirar, desmayo o convulsiones, necesitas ayuda médica ya: llama al 123 en Colombia y sigue las instrucciones del operador. No te quedes a solas. ¿Hay alguien contigo que pueda llamar ahora?'
+                    ]);
+                }
+
+                if (riskWords && (meansWords || attemptWords || immediateWords)) {
+                    ppChatContext.risk = true;
+                    if (attemptWords) return 'Gracias por decírmelo con tanta honestidad. Siento que hayas llegado a un momento tan duro, y no voy a regañarte ni a juzgarte. Como me dices que ya lo intentaste o que te has hecho daño, necesito poner tu seguridad primero: si esto pasó hace poco, tomaste algo o tienes una lesión, llama al 123 o ve a urgencias ahora. Por favor, busca a alguien de confianza y dile claramente: “no estoy a salvo a solas; necesito que te quedes conmigo y me ayudes a conseguir atención”. Aléjate de cualquier cosa que pudieras usar para lastimarte. ¿Te has hecho daño o has tomado algo hoy, o me estás contando de un intento anterior?';
+                    if (meansWords) return 'Gracias por confiarme algo tan delicado. No voy a juzgarte ni a responderte con una frase vacía. Que tengas cosas cerca para hacerlo hace que esto sea urgente, y no tienes que atravesar estos minutos sin ayuda. Si puedes, deja eso en el suelo y aléjate; ve donde haya otra persona y dile: “tengo miedo de hacerme daño, por favor quédate conmigo”. Si crees que podrías actuar, llama al 123 en Colombia o ve a urgencias acompañado/a. Quiero preguntarte algo importante, sin juzgarte: ¿esas cosas están contigo ahora mismo y sientes que podrías usarlas en los próximos minutos?';
+                    return 'Gracias por decirlo directamente. Te tomo en serio. No tienes que resolver toda tu vida en este instante; lo importante es pasar este momento con seguridad y acompañado/a. Si sientes que podrías hacerte daño ahora, busca a alguien ya, aléjate de cualquier cosa peligrosa y llama al 123 en Colombia o ve a urgencias. ¿Estás a solas ahora mismo, o hay alguien que pueda sentarse contigo mientras buscamos el siguiente paso?';
+                }
+
+                if (riskWords) {
+                    ppChatContext.risk = true;
+                    return pick([
+                        'Gracias por confiarme algo tan difícil. No voy a minimizarlo ni a decirte que todo estará bien como si fuera sencillo. Me importa que estés a salvo. ¿Cuando dices que quieres suicidarte, sientes que podrías hacerte daño hoy o es un pensamiento que te está asustando pero no tienes intención de actuar ahora? Si hay riesgo de que actúes, ve con alguien de confianza, no te quedes a solas y llama al 123 en Colombia o acude a urgencias.',
+                        'Te escucho. Debe ser agotador llegar a sentir que no quieres seguir, y no tienes que justificar lo que sientes conmigo. Quiero entender lo urgente que es sin hacerte sentir interrogado/a: ¿has pensado en hacerte daño ahora mismo o tienes algo cerca con lo que podrías hacerlo? Si crees que podrías actuar, busca compañía en este momento y llama al 123 o ve a urgencias. Podemos ir paso a paso, pero tu seguridad va primero.'
+                    ]);
+                }
+
+                if (ppChatContext.risk && /(si|sí|estoy solo|estoy sola|no hay nadie|tengo miedo|no se que hacer|no sé qué hacer|no puedo|lo tengo|estan aqui|están aquí)/.test(t)) {
+                    return 'Gracias por seguir aquí y responderme. No necesitas explicarlo todo ahora. Por favor, da un paso pequeño conmigo: ve hacia otra persona o llama a alguien y dile que necesitas que se quede contigo; si hay algo cerca con lo que podrías lastimarte, aléjate de eso. Si crees que podrías actuar o ya te has hecho daño, llama al 123 o ve a urgencias. ¿Puedes contactar a alguien ahora mismo?';
+                }
+
+                if (/(hola|buenas|buenos dias|buenas tardes|buenas noches)/.test(t)) {
+                    ppChatContext.lastTopic = 'saludo';
+                    return pick(['Hola 💙. Qué bueno que escribiste. No hace falta que tengas una pregunta perfecta ni que cuentes más de lo que quieras. ¿Cómo te está yendo hoy?', 'Hola, aquí podemos empezar despacio. Puedes hacer una pregunta, contarme algo que te preocupa o simplemente decir “no sé por dónde empezar”. ¿Qué te trajo por aquí hoy?']);
+                }
+                if (/(me siento solo|me siento sola|nadie me entiende|no tengo a nadie|estoy solo|estoy sola|me dejaron|me siento aislado)/.test(t)) {
+                    ppChatContext.lastTopic = 'soledad';
+                    return pick(['Sentir que no tienes a nadie de tu lado puede doler muchísimo, sobre todo si llevas tiempo guardándotelo. No voy a asumir que sé exactamente cómo te sientes. ¿Te pasó algo hoy que te hizo sentir así, o es algo que vienes cargando desde hace tiempo?', 'Eso puede sentirse muy pesado. A veces uno está rodeado de gente y aun así se siente solo. Si te parece, cuéntame qué es lo que más te hace sentir que nadie te entiende. No necesitas contarlo todo de una vez.']);
+                }
+                if (/(ansiedad|ataque de panico|ataque de pánico|me falta el aire|estoy muy nervioso|estoy muy nerviosa|no puedo calmarme)/.test(t)) {
+                    ppChatContext.lastTopic = 'ansiedad';
+                    return 'Suena muy incómodo y entiendo que quieras que baje ya. Si estás en un lugar seguro, prueba apoyar los pies en el suelo y soltar el aire lentamente, sin forzarte a respirar profundo. Mira a tu alrededor y nombra tres cosas que ves. Si tienes dolor fuerte en el pecho, te desmayas o te cuesta respirar de verdad, busca atención médica. ¿Esto empezó por algo que pasó o apareció de repente?';
+                }
+                if (/(triste|deprimid|llorando|no tengo ganas|vacio|vacío|nada me importa|todo me da igual|estoy agotad)/.test(t)) {
+                    ppChatContext.lastTopic = 'tristeza';
+                    return pick(['Gracias por ponerlo en palabras. No voy a intentar arreglarlo con un “anímate”, porque a veces no es así de fácil. ¿Qué ha sido lo más difícil de estos días: algo que pasó, cómo te estás tratando a ti mismo/a o sentir que esto no cambia?', 'Parece que llevas bastante encima. No tienes que fingir que estás bien aquí. ¿Hace cuánto te sientes así? ¿Hay algún momento del día en que se vuelve más fuerte?']);
+                }
+                if (/(dejar|parar|abstinencia|dependencia|adiccion|adicto|adiccion|recaida|recaer|no puedo parar|quiero dejar)/.test(t)) {
+                    ppChatContext.lastTopic = 'dejar consumo';
+                    return pick(['Pedir ayuda no significa que hayas fallado. Para pensar en un paso realista, me ayudaría entender un poco la situación sin juzgarte: ¿qué estás consumiendo y qué es lo que más te cuesta, las ganas, la presión de otras personas, cómo te sientes después o algo distinto? No hace falta que compartas datos que te identifiquen. Si hay consumo frecuente de alcohol o sedantes, es importante consultar a un profesional antes de dejarlos de golpe.', 'No tienes que prometer que nunca volverás a consumir para empezar a cuidarte. Podemos mirar qué está pasando y pensar en un paso seguro. ¿Has intentado reducirlo antes? ¿Qué suele ocurrir justo antes de que te den ganas de consumir?']);
+                }
+                if (/(preocupa|consumo|consumir|uso|me cuesta|marihuana|cannabis|cocaina|cocaína|perico|tusi|alcohol|pastillas|vape|nicotina)/.test(t)) {
+                    ppChatContext.lastTopic = 'consumo';
+                    return pick(['Gracias por contármelo. No voy a etiquetarte por consumir ni a dar por hecho que sé lo que te pasa. Para responderte de verdad, ¿me cuentas qué sustancia está involucrada y qué te preocupa más: los efectos, la frecuencia, sentir que pierdes el control o algo que pasó recientemente?', 'Entiendo que quieras hablarlo sin que te sermoneen. Podemos hacerlo con calma y con información clara. ¿Esto te está pasando a ti? Si sí, ¿qué efecto has notado que te preocupa más?']);
+                }
+                if (/(amigo|amiga|hermano|hermana|pareja|familia|ayudar a alguien|otra persona|mi hijo|mi hija)/.test(t)) {
+                    ppChatContext.lastTopic = 'ayudar a alguien';
+                    return 'Se nota que esa persona te importa, y es difícil saber qué decir cuando te preocupa alguien. No tienes que convertirte en su terapeuta ni cargar tú solo/a con todo. ¿Qué has observado concretamente que te hizo preocuparte? Si esa persona habla de suicidarse o está en peligro inmediato, quédate con ella si es seguro y busca ayuda urgente; en Colombia puedes llamar al 123.';
+                }
+                if (/(me hicieron dano|me hizo dano|abuso|me obligo|me maltratan|me maltrato|tengo miedo de alguien|no me siento seguro|no me siento segura)/.test(t)) {
+                    ppChatContext.lastTopic = 'seguridad';
+                    return 'Siento que estés pasando por algo que te hace sentir así. No es necesario que me des detalles si no quieres, y no tienes la culpa de que alguien te haga daño. Lo primero es saber si estás a salvo en este momento: ¿esa persona está cerca de ti ahora? Si hay peligro inmediato, busca un lugar seguro y llama al 123 en Colombia.';
+                }
+                if (/(efectos|riesgo|danos|peligro|cerebro|salud|sustancia|mezclar|mezcla)/.test(t)) {
+                    ppChatContext.lastTopic = 'información de salud';
+                    return 'Claro, te ayudo a entenderlo sin exagerar ni minimizarlo. Los efectos cambian según la sustancia, la cantidad, la frecuencia, las mezclas y la salud de cada persona. Para no darte una respuesta demasiado general, ¿de qué sustancia o combinación quieres saber y qué te preocupa en concreto? Si alguien está inconsciente, convulsiona o respira con dificultad, llama al 123 de inmediato.';
+                }
+                if (/(privacidad|anonim|secreto|datos personales)/.test(t)) return 'Es razonable que quieras proteger tu privacidad. No escribas nombres completos, dirección, teléfono ni datos que te identifiquen. Para ser transparente: este chat es una herramienta automática de orientación, no una persona ni un servicio clínico, y no puedo prometer confidencialidad absoluta. Puedes contar la situación de forma general y compartir solo lo que te resulte cómodo.';
+                if (/(gracias|me ayudaste|gracias por escuchar)/.test(t)) return pick(['Me alegra que hayas podido decirlo aquí 💙. Si quieres seguir, te escucho; y si mi respuesta no encajó con lo que necesitabas, dímelo sin problema. ¿Qué te ayudaría más ahora: que te escuche un poco más o pensar juntos en un siguiente paso?', 'Gracias a ti por confiar un poquito. No tienes que cerrar el tema si todavía necesitas hablar. ¿Hay algo importante que sientes que aún no he entendido?']);
+                if (/(no se que decir|no sé qué decir|no quiero hablar|no se|no sé|no puedo explicarlo)/.test(t)) return 'Está bien. No tienes que encontrar las palabras perfectas ni contar algo antes de estar listo/a. Podemos empezar por algo pequeño: ¿ahora mismo te sientes más triste, asustado/a, enfadado/a, agotado/a o confundido/a? También puedes escribirlo como te salga.';
+                if (/(estoy enojado|estoy enojada|tengo rabia|no aguanto|estoy desesperado|estoy desesperada|todo me sale mal|estoy harto|estoy harta)/.test(t)) return 'Parece que ya estás al límite y no quiero restarle importancia. No tienes que calmarte para poder hablar. ¿Qué fue lo último que pasó antes de que te sintieras así? Podemos separar lo urgente de lo que se puede resolver después.';
+
+                return pick([
+                    'Quiero responderte a lo que realmente estás diciendo, no soltarte una frase automática. Creo que todavía me falta entender una parte. ¿Qué significa eso para ti o qué pasó justo antes de que me escribieras?',
+                    'Te leo. No quiero asumir algo que no has dicho ni darte un consejo que no te sirva. ¿Qué es lo que más te preocupa de esta situación, o qué te gustaría que yo entendiera primero?',
+                    'Gracias por contármelo. Para no responderte de forma superficial, ¿me das un poco más de contexto? Puedes empezar por lo que pasó, cómo te hizo sentir o qué necesitas de esta conversación ahora mismo.'
+                ]);
+            }
+
+            async function getReply(message) {
+                if (PP_CHAT_API_URL) {
+                    const response = await fetch(PP_CHAT_API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message })
+                    });
+                    if (!response.ok) throw new Error('No se pudo contactar el servicio.');
+                    const data = await response.json();
+                    if (typeof data.reply !== 'string' || !data.reply.trim()) throw new Error('Respuesta no válida.');
+                    return data.reply;
+                }
+                return localReply(message);
+            }
+
+            async function sendMessage(text) {
+                const message = text.trim();
+                if (!message || send.disabled) return;
+                addMessage(message, 'user');
+                input.value = '';
+                input.style.height = 'auto';
+                send.disabled = true;
+                typing.hidden = false;
+                messages.scrollTop = messages.scrollHeight;
+                try {
+                    // Dar un pequeño tiempo de lectura para que la conversación no se sienta automática.
+                    // La respuesta aparece tras 2,2–2,8 s como mínimo; si el servicio tarda más, se respeta ese tiempo.
+                    const pause = new Promise(resolve => setTimeout(resolve, 2200 + Math.floor(Math.random() * 601)));
+                    const [reply] = await Promise.all([getReply(message), pause]);
+                    addMessage(reply, 'bot');
+                } catch (error) {
+                    addMessage('No pude obtener una respuesta en este momento. Inténtalo de nuevo más tarde o consulta a un profesional de salud. En una emergencia en Colombia, llama al 123.', 'bot');
+                } finally {
+                    typing.hidden = true;
+                    send.disabled = false;
+                    input.focus();
+                }
+            }
+            form.addEventListener('submit', e => { e.preventDefault(); sendMessage(input.value); });
+            input.addEventListener('input', () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 90) + 'px'; });
+            document.querySelectorAll('[data-pp-question]').forEach(button => {
+                button.addEventListener('click', () => {
+                    openChat();
+                    sendMessage(button.getAttribute('data-pp-question'));
+                });
+            });
+        })();
+
+    </script>
+</body>
+
+</html>
